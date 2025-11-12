@@ -1,0 +1,27 @@
+{
+  "name": "amw-mobile-rv-repair",
+  "version": "1.0.0",
+  "description": "Professional mobile RV repair website for AMW Mobile RV Repair serving Dallas-Fort Worth, TX",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite --open"
+  },
+  "keywords": [
+    "RV",
+    "repair",
+    "mobile",
+    "Dallas",
+    "Fort Worth",
+    "Texas"
+  ],
+  "author": "AMW Mobile RV Repair",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
+
+
