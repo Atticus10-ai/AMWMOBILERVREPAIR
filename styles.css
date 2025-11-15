@@ -55,6 +55,39 @@ img {
     display: block;
 }
 
+/* Prevent double-tap zoom on buttons and links on mobile */
+button, a {
+    touch-action: manipulation;
+}
+
+/* Better tap target sizes for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px;
+    }
+    
+    .nav__link {
+        padding: 8px 0;
+    }
+    
+    .nav__toggle,
+    .nav__close {
+        padding: 10px;
+    }
+    
+    /* Disable hover transforms on touch devices */
+    .service__card:hover,
+    .testimonial__card:hover,
+    .why-choose__card:hover {
+        transform: none;
+    }
+    
+    /* Keep the shadow effects but remove transform */
+    .service__card:active {
+        box-shadow: var(--shadow-lg);
+    }
+}
+
 ul {
     list-style: none;
 }
@@ -198,6 +231,25 @@ ul {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--primary-color);
+}
+
+/* Mobile Menu Overlay */
+.nav__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.nav__overlay.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* ===== HERO SECTION ===== */
@@ -772,13 +824,32 @@ ul {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Landscape - 968px */
 @media screen and (max-width: 968px) {
+    .section {
+        padding: 60px 0;
+    }
+    
     .section__title {
         font-size: 2rem;
     }
     
+    .section__subtitle {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+    
     .hero__title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+    }
+    
+    .hero__subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .hero__features {
+        gap: 30px;
     }
     
     .about__content,
@@ -788,31 +859,50 @@ ul {
         gap: 40px;
     }
     
+    .about__image img {
+        max-width: 300px;
+    }
+    
     .service-area__list ul {
         grid-template-columns: 1fr;
     }
     
     .contact__form {
         grid-template-columns: 1fr;
+        padding: 30px;
     }
     
     .emergency-banner__content {
         text-align: center;
         justify-content: center;
     }
+    
+    .why-choose__grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+    
+    .services__grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
 }
 
+/* Tablet Portrait - 768px */
 @media screen and (max-width: 768px) {
+    /* Navigation Mobile Menu */
     .nav__menu {
         position: fixed;
         top: 0;
         right: -100%;
         width: 80%;
+        max-width: 350px;
         height: 100vh;
         background-color: white;
         padding: 60px 30px;
         transition: var(--transition);
         box-shadow: var(--shadow-lg);
+        z-index: 1001;
     }
     
     .nav__menu.show {
@@ -822,6 +912,7 @@ ul {
     .nav__list {
         flex-direction: column;
         gap: 25px;
+        align-items: flex-start;
     }
     
     .nav__toggle,
@@ -835,38 +926,147 @@ ul {
         right: 20px;
     }
     
+    .nav__logo img {
+        height: 50px;
+    }
+    
+    .nav {
+        height: 70px;
+    }
+    
+    /* Hero Section */
     .hero {
-        margin-top: 80px;
+        margin-top: 70px;
+        min-height: 90vh;
+        padding: 40px 20px;
     }
     
     .hero__title {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .hero__subtitle {
         font-size: 1.2rem;
     }
     
-    .hero__buttons {
-        flex-direction: column;
+    .hero__description {
+        font-size: 1rem;
     }
     
-    .btn {
+    .hero__buttons {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    
+    .hero__buttons .btn {
         width: 100%;
         justify-content: center;
     }
     
-    .services__grid {
-        grid-template-columns: 1fr;
+    .hero__features {
+        flex-direction: column;
+        gap: 20px;
     }
     
+    .hero__feature {
+        width: 100%;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+    
+    /* Services Grid */
+    .services__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service__card {
+        padding: 30px 20px;
+    }
+    
+    .service__icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+    
+    /* Why Choose Us */
+    .why-choose__grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    
+    .why-choose__icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    /* About Stats */
     .about__stats {
         justify-content: space-around;
+        gap: 20px;
+    }
+    
+    .stat__number {
+        font-size: 2.5rem;
+    }
+    
+    /* Testimonials */
+    .testimonials__grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .testimonial__card {
+        padding: 30px 25px;
+    }
+    
+    /* Emergency Banner */
+    .emergency-banner {
+        padding: 30px 0;
+    }
+    
+    .emergency-banner__content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .emergency-banner__content > i {
+        font-size: 2.5rem;
+    }
+    
+    .emergency-banner__text h3 {
+        font-size: 1.5rem;
+    }
+    
+    /* Contact Form */
+    .contact__info {
+        gap: 20px;
+    }
+    
+    .contact__info-card {
+        padding: 20px;
+    }
+    
+    .contact__form {
+        padding: 25px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0 20px;
     }
     
     .footer__content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 30px;
     }
     
     .footer__logo {
@@ -876,19 +1076,320 @@ ul {
     .footer__contact li {
         justify-content: center;
     }
+    
+    /* Scroll to Top */
+    .scroll-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.1rem;
+    }
 }
 
-@media screen and (max-width: 480px) {
-    .hero__title {
-        font-size: 1.8rem;
+/* Mobile Large - 576px */
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 15px;
     }
     
     .section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
     
     .section__title {
         font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+    
+    .section__subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 35px;
+    }
+    
+    .hero__title {
+        font-size: 1.9rem;
+    }
+    
+    .hero__subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero__description {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero__buttons {
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+    
+    .service__card {
+        padding: 25px 18px;
+    }
+    
+    .service__title {
+        font-size: 1.2rem;
+    }
+    
+    .why-choose__card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .map-placeholder {
+        padding: 40px 20px;
+        min-height: 300px;
+    }
+    
+    .map-placeholder i {
+        font-size: 3.5rem;
+    }
+    
+    .map-placeholder p {
+        font-size: 1.1rem;
+    }
+    
+    .contact__form {
+        padding: 20px;
+    }
+    
+    .form__input,
+    .form__textarea {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile Small - 480px */
+@media screen and (max-width: 480px) {
+    .nav {
+        height: 65px;
+    }
+    
+    .nav__logo img {
+        height: 45px;
+    }
+    
+    .hero {
+        margin-top: 65px;
+        min-height: 85vh;
+        padding: 30px 15px;
+    }
+    
+    .hero__title {
+        font-size: 1.7rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero__subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero__description {
+        font-size: 0.9rem;
+    }
+    
+    .hero__feature {
+        font-size: 0.9rem;
+    }
+    
+    .hero__feature i {
+        font-size: 1.6rem;
+    }
+    
+    .section {
+        padding: 40px 0;
+    }
+    
+    .section__title {
+        font-size: 1.6rem;
+    }
+    
+    .section__subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: 11px 18px;
+        font-size: 0.85rem;
+    }
+    
+    .btn-emergency {
+        font-size: 0.95rem;
+    }
+    
+    .service__card {
+        padding: 22px 16px;
+    }
+    
+    .service__icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.6rem;
+    }
+    
+    .service__title {
+        font-size: 1.15rem;
+    }
+    
+    .service__description {
+        font-size: 0.9rem;
+    }
+    
+    .why-choose__icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .why-choose__card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .why-choose__card p {
+        font-size: 0.9rem;
+    }
+    
+    .stat__number {
+        font-size: 2rem;
+    }
+    
+    .stat__label {
+        font-size: 0.85rem;
+    }
+    
+    .about__image img {
+        max-width: 250px;
+    }
+    
+    .service-area__list h3 {
+        font-size: 1.5rem;
+    }
+    
+    .service-area__list li {
+        font-size: 0.95rem;
+    }
+    
+    .service-area__note {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+    
+    .testimonial__card {
+        padding: 25px 20px;
+    }
+    
+    .testimonial__text {
+        font-size: 0.9rem;
+    }
+    
+    .emergency-banner {
+        padding: 25px 0;
+    }
+    
+    .emergency-banner__content > i {
+        font-size: 2rem;
+    }
+    
+    .emergency-banner__text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .emergency-banner__text p {
+        font-size: 0.9rem;
+    }
+    
+    .contact__info-card {
+        padding: 18px;
+    }
+    
+    .contact__info-card i {
+        font-size: 2rem;
+    }
+    
+    .contact__info-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .contact__info-card p,
+    .contact__info-card a {
+        font-size: 0.9rem;
+    }
+    
+    .contact__form {
+        padding: 18px;
+        gap: 15px;
+    }
+    
+    .footer__section h4 {
+        font-size: 1.2rem;
+    }
+    
+    .footer__section p,
+    .footer__links li,
+    .footer__contact li {
+        font-size: 0.9rem;
+    }
+    
+    .scroll-top {
+        width: 42px;
+        height: 42px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Extra Small - 360px */
+@media screen and (max-width: 360px) {
+    .nav__menu {
+        width: 85%;
+    }
+    
+    .hero__title {
+        font-size: 1.5rem;
+    }
+    
+    .hero__subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .section__title {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .service__icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .why-choose__icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.6rem;
+    }
+    
+    .about__stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat {
+        width: 100%;
     }
 }
 

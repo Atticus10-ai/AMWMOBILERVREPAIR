@@ -2,27 +2,38 @@
 const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
+const navOverlay = document.getElementById('nav-overlay');
 const navLinks = document.querySelectorAll('.nav__link');
 
 // Show menu
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.add('show');
+        navOverlay.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
     });
 }
 
-// Hide menu
+// Hide menu function
+const hideMenu = () => {
+    navMenu.classList.remove('show');
+    navOverlay.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
+};
+
+// Hide menu on close button click
 if (navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-    });
+    navClose.addEventListener('click', hideMenu);
+}
+
+// Hide menu on overlay click
+if (navOverlay) {
+    navOverlay.addEventListener('click', hideMenu);
 }
 
 // Remove menu on link click
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-    });
+    link.addEventListener('click', hideMenu);
 });
 
 // ===== ACTIVE LINK ON SCROLL =====
