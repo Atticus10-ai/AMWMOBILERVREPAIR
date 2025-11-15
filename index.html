@@ -268,6 +268,34 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Emergency Services Card -->
+                <div class="pricing__card pricing__card--emergency">
+                    <div class="pricing__badge pricing__badge--urgent">24/7 Available</div>
+                    <div class="pricing__icon pricing__icon--emergency">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3 class="pricing__title">Emergency Services</h3>
+                    <div class="pricing__price-group">
+                        <div class="pricing__price-item">
+                            <span class="price-label">Emergency Call-Out:</span>
+                            <span class="price-value">$500</span>
+                        </div>
+                        <div class="pricing__price-item">
+                            <span class="price-label">Hourly Rate:</span>
+                            <span class="price-value">$150/hr</span>
+                        </div>
+                    </div>
+                    <p class="pricing__description">Fast response when you need us most</p>
+                    <div class="pricing__details">
+                        <p><i class="fas fa-clock"></i> Available 24/7</p>
+                        <p><i class="fas fa-bolt"></i> Priority response</p>
+                        <p><i class="fas fa-truck-fast"></i> Rapid deployment</p>
+                        <div class="pricing__emergency-note">
+                            <p><strong>When you're stranded or facing urgent repairs, we're here.</strong> Same-day response for breakdowns, AC failures, electrical issues, and critical system failures.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Additional Info Banner -->
@@ -484,7 +512,12 @@
                     </div>
                 </div>
 
-                <form class="contact__form" id="contact-form">
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact__form" id="contact-form">
+                    <!-- Web3Forms Configuration -->
+                    <input type="hidden" name="access_key" value="de678092-382b-4230-b832-6e524b3df5c0">
+                    <input type="hidden" name="subject" value="New RV Repair Inquiry from Website">
+                    <input type="hidden" name="from_name" value="AMW Mobile RV Repair Website">
+                    
                     <div class="form__group">
                         <input type="text" name="name" class="form__input" placeholder="Your Name *" required>
                     </div>
@@ -517,9 +550,10 @@
                     <div class="form__group form__group-full">
                         <textarea name="message" class="form__input form__textarea" placeholder="Describe the issue or service needed *" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">
+                    <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
                         <i class="fas fa-paper-plane"></i> Send Message
                     </button>
+                    <div id="form-message" style="display: none; margin-top: 20px;"></div>
                 </form>
             </div>
         </div>
