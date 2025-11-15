@@ -71,7 +71,7 @@ function shadowHeader() {
 
 window.addEventListener('scroll', shadowHeader);
 
-// ===== SCROLL TO TOP BUTTON =====
+// ===== SCROLL TO TOP BUTTON ===== 
 const scrollTopBtn = document.getElementById('scroll-top');
 
 function showScrollTop() {
