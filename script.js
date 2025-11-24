@@ -197,77 +197,60 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Initialization complete!');
 });
 
-// ===== CONTACT FORM HANDLING WITH WEB3FORMS =====
+// ===== CONTACT FORM HANDLING (DEMO MODE) =====
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const formMessage = document.getElementById('form-message');
+    const modal = document.getElementById('form-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalClose = document.getElementById('modal-close');
+    const modalOk = document.getElementById('modal-ok');
     
     if (!contactForm) return;
     
-    contactForm.addEventListener('submit', async function(e) {
+    // Show modal function
+    function showModal() {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Hide modal function
+    function hideModal() {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+    
+    // Form submission
+    contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Disable button and show loading state
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        // Show modal instead of sending
+        showModal();
         
-        // Get form data
-        const formData = new FormData(contactForm);
-        
-        try {
-            // Submit to Web3Forms
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            });
-            
-            const result = await response.json();
-            
-            if (result.success) {
-                // Show success message
-                formMessage.style.display = 'block';
-                formMessage.style.padding = '20px';
-                formMessage.style.borderRadius = '8px';
-                formMessage.style.backgroundColor = '#d4edda';
-                formMessage.style.color = '#155724';
-                formMessage.style.border = '1px solid #c3e6cb';
-                formMessage.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Success!</strong> Thank you for your message. We\'ll contact you soon!';
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Scroll to message
-                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                
-                // Reset button
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-                
-            } else {
-                throw new Error('Form submission failed');
-            }
-            
-        } catch (error) {
-            // Show error message
-            formMessage.style.display = 'block';
-            formMessage.style.padding = '20px';
-            formMessage.style.borderRadius = '8px';
-            formMessage.style.backgroundColor = '#f8d7da';
-            formMessage.style.color = '#721c24';
-            formMessage.style.border = '1px solid #f5c6cb';
-            formMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> <strong>Error!</strong> Something went wrong. Please call us directly at (940) 390-2034.';
-            
-            // Reset button
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-            
-            console.error('Form submission error:', error);
+        // Reset form after showing modal
+        setTimeout(() => {
+            contactForm.reset();
+        }, 500);
+    });
+    
+    // Close modal on button click
+    if (modalOk) {
+        modalOk.addEventListener('click', hideModal);
+    }
+    
+    // Close modal on X button
+    if (modalClose) {
+        modalClose.addEventListener('click', hideModal);
+    }
+    
+    // Close modal on overlay click
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', hideModal);
+    }
+    
+    // Close modal on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            hideModal();
         }
     });
 });

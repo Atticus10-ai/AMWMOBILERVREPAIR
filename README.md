@@ -1,13 +1,13 @@
-# AMW Mobile RV Repair Website - Complete Guide
+# XYZ Mobile RV Repair Website - Complete Guide
 
-A modern, professional website for AMW Mobile RV Repair serving the Greater Dallas-Fort Worth, TX metropolitan area.
+A modern, professional website for XYZ Mobile RV Repair serving the Greater Dallas-Fort Worth, TX metropolitan area.
 
 ---
 
 ## 📞 Quick Contact Info
 
 - **Phone**: (940) 390-2034
-- **Email**: 1836@atticuswilson.com
+- **Email**: dave@dudesrv.com
 - **Service Area**: Greater Dallas-Fort Worth Metropolitan Area
 - **Hours**: Open 24 hours, 7 days a week
 
@@ -32,12 +32,12 @@ Your website has 8 main sections that visitors see:
 
 ### How It Works
 
-Your contact form is connected to **Web3Forms**, a free service that sends form submissions directly to your email at **1836@atticuswilson.com**.
+Your contact form is connected to **Web3Forms**, a free service that sends form submissions directly to your email at **dave@dudesrv.com**.
 
 ### Your Web3Forms Details
 
 - **Access Key**: `de678092-382b-4230-b832-6e524b3df5c0`
-- **Email Receiving**: 1836@atticuswilson.com
+- **Email Receiving**: dave@dudesrv.com
 - **Submission Limit**: Unlimited (100% free)
 - **Dashboard**: https://web3forms.com
 
@@ -46,7 +46,7 @@ Your contact form is connected to **Web3Forms**, a free service that sends form 
 1. Customer fills out the form on your website
 2. They click "Send Message"
 3. Web3Forms processes the form
-4. You receive an email at 1836@atticuswilson.com with:
+4. You receive an email at dave@dudesrv.com with:
    - Customer's name
    - Customer's phone number
    - Customer's email
@@ -71,7 +71,7 @@ Your contact form is connected to **Web3Forms**, a free service that sends form 
 
 **Problem**: Not receiving emails
 - Check your spam/junk folder
-- Verify 1836@atticuswilson.com is the correct email
+- Verify dave@dudesrv.com is the correct email
 - Test the form by submitting a test inquiry yourself
 
 **Problem**: Form shows error message
@@ -105,12 +105,12 @@ Your current phone number: **(940) 390-2034**
 
 ### Changing Email Address
 
-Your current email: **1836@atticuswilson.com**
+Your current email: **dave@dudesrv.com**
 
 **To change it:**
 
 1. Open `index.html`
-2. Search for: `1836@atticuswilson.com`
+2. Search for: `dave@dudesrv.com`
 3. Replace with your new email
 4. **IMPORTANT**: Also update Web3Forms (see Contact Form Setup section above)
 5. Save the file
@@ -182,10 +182,10 @@ Your current hours: **Open 24 hours, 7 days a week**
 1. Prepare your new logo:
    - Save it as a JPG or PNG file
    - Recommended size: 200-300 pixels wide
-   - Name it `amw_logo.jpg` (or remember the new name)
+   - Name it `logo.jfif` (or remember the new name)
 2. Place it in the `images` folder
 3. If you used a different name, open `index.html`
-4. Search for: `images/amw_logo.jpg`
+4. Search for: `images/logo.jfif`
 5. Replace with: `images/YOUR-NEW-LOGO-NAME.jpg`
 6. Save the file
 
@@ -259,7 +259,7 @@ Your Website Folder/
 ├── README.md           ← This instruction file
 │
 └── images/
-    └── amw_logo.jpg    ← Your company logo
+    └── logo.jfif    ← Your company logo
 ```
 
 **What each file does:**
@@ -267,7 +267,7 @@ Your Website Folder/
 - **index.html** - Contains all text, images, and structure
 - **styles.css** - Makes everything look good (colors, sizes, spacing)
 - **script.js** - Makes things interactive (hamburger menu, smooth scrolling, contact form)
-- **images/amw_logo.jpg** - Your logo image
+- **images/logo.jfif** - Your logo image
 
 ---
 
@@ -310,7 +310,7 @@ Your Website Folder/
 
 **Cost**: FREE forever
 
-### Option 3: Your Own Domain (amwmobilervrepair.com)
+### Option 3: Your Own Domain (xyzmobilervrepair.com)
 
 **If you want a custom domain:**
 
@@ -488,7 +488,7 @@ Files Modified: index.html (Testimonials section)
 ### Common Questions
 
 **Q: How do I know if someone submitted the contact form?**
-A: You'll receive an email at 1836@atticuswilson.com. Check spam folder if you don't see it.
+A: You'll receive an email at dave@dudesrv.com. Check spam folder if you don't see it.
 
 **Q: Can I change the layout of the website?**
 A: Yes, but it requires editing `styles.css`. Make a backup first!
