@@ -191,17 +191,9 @@ ul {
     height: 80px;
 }
 
-.nav__logo {
-    position: relative;
-    z-index: 10;
-}
-
 .nav__logo img {
-    height: 140px;
+    height: 60px;
     width: auto;
-    max-width: 320px;
-    position: relative;
-    top: 15px;
 }
 
 .nav__list {
@@ -1094,105 +1086,6 @@ ul {
     transform: translateY(-5px);
 }
 
-/* ===== MODAL ===== */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-}
-
-.modal__content {
-    position: relative;
-    z-index: 2;
-    background: white;
-    border-radius: 12px;
-    padding: 40px;
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: modalSlideIn 0.3s ease;
-}
-
-@keyframes modalSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.modal__close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--text-light);
-    cursor: pointer;
-    transition: var(--transition);
-    padding: 5px;
-}
-
-.modal__close:hover {
-    color: var(--secondary-color);
-    transform: rotate(90deg);
-}
-
-.modal__icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: white;
-}
-
-.modal__title {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.modal__message {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.modal__button {
-    min-width: 120px;
-}
-
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Tablet Landscape - 968px */
@@ -1298,9 +1191,7 @@ ul {
     }
     
     .nav__logo img {
-        height: 90px;
-        max-width: 220px;
-        top: 5px;
+        height: 50px;
     }
     
     .nav {
@@ -1573,9 +1464,7 @@ ul {
     }
     
     .nav__logo img {
-        height: 75px;
-        max-width: 180px;
-        top: 0;
+        height: 45px;
     }
     
     .hero {
