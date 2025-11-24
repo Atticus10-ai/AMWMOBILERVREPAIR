@@ -36,7 +36,7 @@ Your contact form is connected to **Web3Forms**, a free service that sends form 
 
 ### Your Web3Forms Details
 
-- **Access Key**: `de678092-382b-4230-b832-6e524b3df5c0`
+- **Access Key**: `xxxx`
 - **Email Receiving**: 1836@atticuswilson.com
 - **Submission Limit**: Unlimited (100% free)
 - **Dashboard**: https://web3forms.com
