@@ -7,7 +7,7 @@ A modern, professional website for AMW Mobile RV Repair serving the Greater Dall
 ## 📞 Quick Contact Info
 
 - **Phone**: (940) 390-2034
-- **Email**: 1836@atticuswilson.com
+- **Email**: atticuswilson@me.com
 - **Service Area**: Greater Dallas-Fort Worth Metropolitan Area
 - **Hours**: Open 24 hours, 7 days a week
 
@@ -32,12 +32,12 @@ Your website has 8 main sections that visitors see:
 
 ### How It Works
 
-Your contact form is connected to **Web3Forms**, a free service that sends form submissions directly to your email at **1836@atticuswilson.com**.
+Your contact form is connected to **Web3Forms**, a free service that sends form submissions directly to your email at **atticuswilson@me.com**.
 
 ### Your Web3Forms Details
 
 - **Access Key**: `xxxx`
-- **Email Receiving**: 1836@atticuswilson.com
+- **Email Receiving**: atticuswilson@me.com
 - **Submission Limit**: Unlimited (100% free)
 - **Dashboard**: https://web3forms.com
 
@@ -46,7 +46,7 @@ Your contact form is connected to **Web3Forms**, a free service that sends form 
 1. Customer fills out the form on your website
 2. They click "Send Message"
 3. Web3Forms processes the form
-4. You receive an email at 1836@atticuswilson.com with:
+4. You receive an email at atticuswilson@me.com with:
    - Customer's name
    - Customer's phone number
    - Customer's email
@@ -71,7 +71,7 @@ Your contact form is connected to **Web3Forms**, a free service that sends form 
 
 **Problem**: Not receiving emails
 - Check your spam/junk folder
-- Verify 1836@atticuswilson.com is the correct email
+- Verify atticuswilson@me.com is the correct email
 - Test the form by submitting a test inquiry yourself
 
 **Problem**: Form shows error message
@@ -105,12 +105,12 @@ Your current phone number: **(940) 390-2034**
 
 ### Changing Email Address
 
-Your current email: **1836@atticuswilson.com**
+Your current email: **atticuswilson@me.com**
 
 **To change it:**
 
 1. Open `index.html`
-2. Search for: `1836@atticuswilson.com`
+2. Search for: `atticuswilson@me.com`
 3. Replace with your new email
 4. **IMPORTANT**: Also update Web3Forms (see Contact Form Setup section above)
 5. Save the file
@@ -488,7 +488,7 @@ Files Modified: index.html (Testimonials section)
 ### Common Questions
 
 **Q: How do I know if someone submitted the contact form?**
-A: You'll receive an email at 1836@atticuswilson.com. Check spam folder if you don't see it.
+A: You'll receive an email at atticuswilson@me.com. Check spam folder if you don't see it.
 
 **Q: Can I change the layout of the website?**
 A: Yes, but it requires editing `styles.css`. Make a backup first!
